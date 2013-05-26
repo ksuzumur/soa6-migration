@@ -1,0 +1,45 @@
+<definitions name='HelloWorldWS' targetNamespace='http://helloworld.quickstart.samples.esb.soa.jboss.org/' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='http://helloworld.quickstart.samples.esb.soa.jboss.org/' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+ <types>
+  <xs:schema targetNamespace='http://helloworld.quickstart.samples.esb.soa.jboss.org/' version='1.0' xmlns:tns='http://helloworld.quickstart.samples.esb.soa.jboss.org/' xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+   <xs:element name='sayHello' type='tns:sayHello'/>
+   <xs:element name='sayHelloResponse' type='tns:sayHelloResponse'/>
+   <xs:complexType name='sayHello'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='arg0' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='sayHelloResponse'>
+    <xs:sequence/>
+   </xs:complexType>
+  </xs:schema>
+ </types>
+ <message name='HelloWorldEjbWS_sayHelloResponse'>
+  <part element='tns:sayHelloResponse' name='sayHelloResponse'></part>
+ </message>
+ <message name='HelloWorldEjbWS_sayHello'>
+  <part element='tns:sayHello' name='sayHello'></part>
+ </message>
+ <portType name='HelloWorldEjbWS'>
+  <operation name='sayHello' parameterOrder='sayHello'>
+   <input message='tns:HelloWorldEjbWS_sayHello'></input>
+   <output message='tns:HelloWorldEjbWS_sayHelloResponse'></output>
+  </operation>
+ </portType>
+ <binding name='HelloWorldEjbWSBinding' type='tns:HelloWorldEjbWS'>
+  <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='sayHello'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+ </binding>
+ <service name='HelloWorldWS'>
+  <port binding='tns:HelloWorldEjbWSBinding' name='HelloWorldEjbWSBeanPort'>
+   <soap:address location='http://127.0.0.1:8080/Quickstart_helloworld_ejb3_ws/HelloWorldEjbWSBean'/>
+  </port>
+ </service>
+</definitions>
