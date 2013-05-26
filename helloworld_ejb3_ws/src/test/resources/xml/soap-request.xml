@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:hel="http://helloworld.quickstart.samples.esb.soa.jboss.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <hel:sayHello>
+         <!--Optional:-->
+         <arg0>Ejb3</arg0>
+      </hel:sayHello>
+   </soapenv:Body>
+</soapenv:Envelope>

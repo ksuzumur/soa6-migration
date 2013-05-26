@@ -1,0 +1,6 @@
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+   <env:Header/>
+   <env:Body>
+      <ns2:sayHelloResponse xmlns:ns2="http://helloworld.quickstart.samples.esb.soa.jboss.org/"/>
+   </env:Body>
+</env:Envelope>
